@@ -1,13 +1,13 @@
 {
   "functions": {
-    "./**/*.ts": {
-      "runtime": "nodejs14.x"
+    "src/**/*.ts": {
+      "runtime": "@vercel/node"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "./(.*)",
-      "dest": "./app.ts"
+      "source": "/src/(.*)",
+      "destination": "/src/$1"
     }
   ]
 }
