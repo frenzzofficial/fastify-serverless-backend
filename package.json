@@ -16,9 +16,6 @@
     "@vercel/node": "^5.3.0",
     "arctic": "^3.7.0"
   },
-  "engines": {
-    "node": ">=18"
-  },
   "devDependencies": {
     "@types/node": "^24.0.3",
     "typescript": "^5.8.3",
