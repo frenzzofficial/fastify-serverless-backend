@@ -1,6 +1,6 @@
 {
   "functions": {
-    "/**/*.ts": {
+    "./**/*.ts": {
       "runtime": "nodejs14.x"
     }
   },
