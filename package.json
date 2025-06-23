@@ -1,0 +1,30 @@
+{
+  "name": "fastify-serverless-backend",
+  "version": "1.0.0",
+  "description": "A serverless Fastify backend with TypeScript and MySQL integration for Vercel deployment.",
+  "main": "app.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/api/index.ts",
+    "deploy": "vercel --prod"
+  },
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "keywords": [
+    "fastify",
+    "serverless",
+    "typescript",
+    "mysql",
+    "vercel"
+  ],
+  "dependencies": {
+    "fastify": "^5.4.0",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.3",
+    "ts-node": "^10.9.2"
+  }
+}

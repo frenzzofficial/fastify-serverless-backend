@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "/**/*.ts": {
+      "runtime": "nodejs14.x"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/app.ts"
+    }
+  ]
+}
