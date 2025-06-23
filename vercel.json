@@ -1,6 +1,6 @@
 {
   "functions": {
-    "src/server.ts": {
+    "api/server.ts": {
       "runtime": "@vercel/node@5.3.0"
     }
   }

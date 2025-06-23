@@ -16,6 +16,6 @@
     "allowJs": true,
     "noEmit": false
   },
-  "include": ["src/**/*", "types/**/*"],
+  "include": ["src/**/*", "types/**/*", "api/server.ts"],
   "exclude": ["node_modules", "dist"]
 }
