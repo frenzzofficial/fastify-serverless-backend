@@ -1,7 +1,7 @@
 {
   "functions": {
-    "src/*.ts": {
-      "runtime": "@vercel/node"
+    "src/server.ts": {
+      "runtime": "@vercel/node@5.3.0"
     }
   },
   "rewrites": [
