@@ -9,4 +9,4 @@ app.get('/', async (req, reply) => {
     return reply.status(200).type('text/html').send(html)
 })
 
-module.exports = app;
+export default app;

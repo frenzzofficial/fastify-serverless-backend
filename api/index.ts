@@ -1,4 +1,4 @@
-import app from "../src/.js"
+import app from "./app.js"
 import { VercelRequest, VercelResponse } from "@vercel/node";
 
 export default async function handler(req: VercelRequest, reply: VercelResponse) {
