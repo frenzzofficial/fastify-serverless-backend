@@ -1,17 +1,16 @@
 import Fastify from 'fastify'
-import type { VercelRequest, VercelResponse } from "@vercel/node"
 
 const app = Fastify({
-    logger: true,
+  logger: true,
 })
 
 app.get('/', async (req, reply) => {
-    return reply.status(200).type('text/html').send(html)
+  return reply.status(200).type('text/html').send(html)
 })
 
-export default async function handler(req: VercelRequest, reply: VercelResponse) {
-    await app.ready()
-    app.server.emit('request', req, reply)
+export default async function handler(req, reply) {
+  await app.ready()
+  app.server.emit('request', req, reply)
 }
 
 const html = `
