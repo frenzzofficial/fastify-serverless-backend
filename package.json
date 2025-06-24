@@ -4,12 +4,6 @@
   "description": "Fastify server with Google OAuth on Vercel",
   "main": "server.js",
   "type": "module",
-  "scripts": {
-    "dev": "vercel dev",
-    "build": "tsc",
-    "start": "node dist/src/server.js",
-    "type-check": "tsc --noEmit"
-  },
   "dependencies": {
     "fastify": "^5.4.0",
     "@fastify/cors": "^11.0.1",
