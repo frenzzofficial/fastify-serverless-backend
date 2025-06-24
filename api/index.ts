@@ -1,8 +1,5 @@
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-// import app from "./app";
-
-
 
 import Fastify from 'fastify'
 const app = Fastify({
