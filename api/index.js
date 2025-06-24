@@ -8,6 +8,10 @@ app.get('/', async (_req, reply) => {
   return reply.status(200).type('text/html').send(html)
 })
 
+export default async function handler(req, reply) {
+  await app.ready()
+  app.server.emit('request', req, reply)
+}
 
 const html = `
 <!DOCTYPE html>
@@ -27,7 +31,3 @@ const html = `
   </body>
 </html>
 `
-export default async function handler(req, reply) {
-  await app.ready()
-  app.server.emit('request', req, reply)
-}
