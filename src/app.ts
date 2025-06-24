@@ -27,3 +27,5 @@ const html = `
   </body>
 </html>
 `
+
+export default app;
