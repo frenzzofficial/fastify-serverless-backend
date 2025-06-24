@@ -1,5 +1,5 @@
 
-import { html } from 'api/index.js';
+import { html } from './index';
 import Fastify from 'fastify'
 const app = Fastify({
     logger: true,
