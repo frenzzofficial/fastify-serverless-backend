@@ -1,4 +1,4 @@
-import app from "@/vercel/output/app";
+import app from "../output/app";
 
 export default async function handler(req, reply) {
   await app.ready()
