@@ -1,0 +1,25 @@
+{
+  "name": "fastify-serverless-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "vercel dev",
+    "deploy:prod": "vercel deploy --prod",
+    "build": "tsc -p tsconfig.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "dependencies": {
+    "dotenv": "^16.6.0",
+    "fastify": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.4",
+    "@vercel/node": "^5.3.0",
+    "typescript": "^5.8.3",
+    "vercel": "^44.2.6"
+  }
+}
