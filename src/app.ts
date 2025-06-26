@@ -1,9 +1,9 @@
-import Fastify from 'fastify'
+import Fastify, { type FastifyReply, type FastifyRequest } from 'fastify'
 const app = Fastify({
     logger: true,
 })
 
-app.get('/', async (req, reply) => {
+app.get('/', async (_req: FastifyRequest, reply: FastifyReply) => {
     return reply.status(200).type('text/html').send(html)
 })
 
