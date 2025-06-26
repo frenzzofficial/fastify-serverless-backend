@@ -1,20 +1,35 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import app from '../src/app'; // Adjust the path if needed
+// import app from '../src/app';
 
+import Fastify from 'fastify';
 
-// Vercel handler
-export default async (req: VercelRequest, res: VercelResponse) => {
-    // Fastify's inject method simulates an HTTP request
-    const result = await app.inject({
-        method: req.method as any,
-        url: req.url || '/',
-        headers: req.headers as any,
-        payload: req.body,
-    });
+const app = Fastify({
+    logger: true,
+})
 
-    res.status(result.statusCode);
-    for (const [key, value] of Object.entries(result.headers)) {
-        if (value) res.setHeader(key, value as string);
-    }
-    res.send(result.body);
-};
+app.get('/', async (req, reply) => {
+    return reply.status(200).type('text/html').send(html)
+})
+
+export const html = `
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
+    />
+    <title>Fastify Backend</title>
+  </head>
+  <body>
+    <h1>Vercel Fastify template</h1>
+  </body>
+</html>
+`
+
+export default async function handler(req: VercelRequest, reply: VercelResponse) {
+    await app.ready()
+    app.server.emit('request', req, reply)
+}

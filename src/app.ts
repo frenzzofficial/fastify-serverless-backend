@@ -1,10 +1,28 @@
-import Fastify from 'fastify';
+// import Fastify from 'fastify';
 
-const app = Fastify();
+// const app = Fastify({
+//     logger: true,
+// })
 
+// app.get('/', async (req, reply) => {
+//     return reply.status(200).type('text/html').send(html)
+// })
 
-app.get('/', async (req, reply) => {
-    return { message: 'Welcome to the Fastify Serverless Backend!' };
-});
-
-export default app;
+// export const html = `
+// <!DOCTYPE html>
+// <html lang="en">
+//   <head>
+//     <meta charset="UTF-8" />
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+//     <link
+//       rel="stylesheet"
+//       href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
+//     />
+//     <title>Fastify Backend</title>
+//   </head>
+//   <body>
+//     <h1>Vercel Fastify template</h1>
+//   </body>
+// </html>
+// `
+// export default app;
