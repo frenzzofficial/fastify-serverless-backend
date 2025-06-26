@@ -1,12 +1,11 @@
 import Fastify, { type FastifyReply, type FastifyRequest } from 'fastify'
 const app = Fastify({
-    logger: true,
+  logger: true,
 })
 
 app.get('/', async (_req: FastifyRequest, reply: FastifyReply) => {
-    return reply.status(200).type('text/html').send(html)
+  return reply.status(200).type('text/html').send(html)
 })
-
 
 export const html = `
 <!DOCTYPE html>
