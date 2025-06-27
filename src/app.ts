@@ -1,51 +1,49 @@
-import Fastify, { FastifyReply, FastifyRequest } from 'fastify';
+// Import the framework and instantiate it
+import Fastify from "fastify";
+import fastifyPlugin from "fastify-plugin";
 
-const app = Fastify({
-  logger: false,
-})
+//Import all typescript instances
+import type { FastifyInstance } from "fastify";
 
-app.get('/',
-  {
-    schema: {
-      response: {
-        200: {
-          type: 'string',
-        },
-      },
-    },
-  },
-  async (_req: FastifyRequest, reply: FastifyReply) => {
-    return reply.status(200).type('text/html').send(html)
-  });
-app.get('/google',
-  {
-    schema: {
-      response: {
-        200: {
-          type: 'string',
-        },
-      },
-    },
-  },
-  async (_req: FastifyRequest, reply: FastifyReply) => {
-    return reply.status(200).send("google login")
-  });
+//Import all plugins
+import dbPlugin from "./configs/database/db.plugin";
+import cookiePlugin from "./configs/plugins/plugin.cookie";
+import corsPlugin from "./configs/plugins/plugin.cors";
+import apiRoutesV1_Plugin from "./configs/plugins/plugin.routesV1";
 
-export const html = `
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-    <title>Fastify Backend</title>
-  </head>
-  <body>
-    <h1>Vercel Fastify template</h1>
-  </body>
-</html>
-`
+//Initialize Fastify app
+const app: FastifyInstance = Fastify({
+  // logger: true,
+});
+
+// Register homepage app route
+app.get("/", async function handler(_req, _reply) {
+  return "Server is fast with fastify";
+});
+
+app.register(cookiePlugin);
+app.register(corsPlugin);
+app.register(dbPlugin);
+app.register(apiRoutesV1_Plugin);
+
+//not found page app route
+app.get("/*", (_req, reply) => {
+  reply.status(404).send("Error 404, URL not found");
+});
+
+// test database plugin and connecting to mysql database
+app.register(
+  fastifyPlugin((fastify, _opts, done) => {
+    //register all plugins
+    fastify.ready((err) => {
+      if (err) {
+        console.error("Error connecting to any plugin:", err);
+        process.exit(1);
+      }
+      console.log("Successfully connected to all plugins");
+    });
+    done();
+  })
+);
+
 export default app;
